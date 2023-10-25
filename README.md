@@ -1,4 +1,4 @@
-# stock-currency-app
+# Stock Globetrotter
 
 ## User Story
 AS AN Investor who travels  
