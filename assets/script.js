@@ -54,3 +54,11 @@ const contactUsBtn = () => {
 }
 
 contactUsBtn();
+
+ // JavaScript to handle the close button functionality
+ const closeButton = document.getElementById("close-button");
+ const githubLinks = document.querySelector(".github-links");
+
+ closeButton.addEventListener("click", () => {
+   githubLinks.style.display = "none";
+ });
