@@ -11,29 +11,15 @@
   <link href="assets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 </head>
-<body>
-
-<!-- GitHub Links on the right side -->
-<div class="github-links">
-  <h4>Connect with us!</h4>
-  <ul>
-    <li><a href="https://github.com/evan-hatley">Evan Hatley</a></li>
-    <li><a href="https://github.com/KKBellew">Kayleena Bellew</a></li>
-    <li><a href="https://github.com/DylanOzzy">Dylan Osborn</a></li>
-    <li><a href="https://github.com/MayaH2000">Maya Hernandez</a></li>
-  </ul>
-</div>
+  <!-- Added background image to the body instead of floating element -->
+<body style="background-image: url('assets/Images/background1.jpg');">
 
 <!-- Jumbotron title -->
 <div class="jumbotron container-fluid mt-2 text-center p-2" style="background-image: linear-gradient(50deg, #079ed8 0%, #0160a2 100%);">
   <h1><strong>Stock Globe Trotter</strong></h1>
 </div>
 
-<div class="stockimageheader">
-  <img src="assets/Images/background1.jpg" alt="stock Globe">
-</div>
-
-<div id="index-banner" class="parallax-container">
+<div id="index-banner" class="parallax-container" >
   <div class="section no-pad-bot">
     <div class="container">
       <br><br>
@@ -44,14 +30,29 @@
       <div class="row center">
         <a href="https://github.com/evan-hatley/StockGlobetrotter" id="github repository" class="btn-large waves-effect waves-light teal lighten-1">Github Repository</a>
       </div>
+      <!-- Made Contact Us button to Display Contact Information -->
+      <div class="row center">
+        <a id="contactUsBtn" class="btn-large waves-effect waves-light teal lighten-1">Contact Us</a>
+      </div>
       <br><br>
     </div>
   </div>
 </div>
 
+<!-- GitHub Links on the right side -->
+<div class="github-links">
+  <h4>Connect with us!</h4>
+  <!-- Add Button that can be used by java script to close the section. -->
+  <ul>
+    <li><a href="https://github.com/evan-hatley">Evan Hatley</a></li>
+    <li><a href="https://github.com/KKBellew">Kayleena Bellew</a></li>
+    <li><a href="https://github.com/DylanOzzy">Dylan Osborn</a></li>
+    <li><a href="https://github.com/MayaH2000">Maya Hernandez</a></li>
+  </ul>
+</div>
+
 <div class="container">
   <div class="section">
-    <!-- Collapsible Section -->
     <ul class="collapsible">
       <li>
         <div class="collapsible-header"><i class="material-icons">flash_on</i>Stock</div>
@@ -69,32 +70,10 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="section">
-    <div class="row">
-      <div class="col s12 center">
-        <h3><i class="mdi-content-send brown-text"></i></h3>
-        <h4>About Stock Globe Trotter</h4>
-        <h5>User Story</h5>
-        <p>AS AN Investor who travels
-          I WANT to keep track of my stock's exchange rate for where I am
-          SO I know my stock's value in relation to my location.
-        </p>
-        <h5>Technologies Used</h5>
-        <p>The two APIs we used in this project are the NASDAQ Data API and ExchangeRates API</p>
-        <ul>
-          <li><a href="https://exchangeratesapi.io/">ExchangeRatesAPI</a></li>
-          <li><a href="https://docs.data.nasdaq.com/">NASDAQ Data</a></li>
-        </ul>
-        <p class="left-align light"></p>
-      </div>
-    </div>
-  </div>
-</div>
-
+<!-- Moved "About" to footer -->
 <div class="parallax-container valign-wrapper">
   <div class="section no-pad-bot">
-    <div class "container">
+    <div class="container">
       <div class="row center">
         <h5 class="header col s12 light"></h5>
       </div>
@@ -106,10 +85,22 @@
 <footer class="page-footer teal">
   <div class="container">
     <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text"></h5>
-        <p class="grey-text text-lighten-4"></p>
-      </div>
+      <h5 class="white-text"></h5>
+      <h4>About Stock Globe Trotter</h4>
+      <h5>User Story</h5>
+      <p>
+        AS AN Investor who travels
+      </p>
+      <p>
+        I WANT to keep track of my stock's exchange rate for where I am
+      </p>
+      <p>
+        SO I know my stock's value in relation to my location.
+      </p>
+      <h5>Technologies Used</h5>
+      <p>The two APIs we used in this project are the <a class="black-text" href="https://docs.data.nasdaq.com/">NASDAQ
+          Data API</a> and <a class="black-text" href="https://exchangeratesapi.io/">ExchangeRates API</a></p>
+      <p class="grey-text text-lighten-4"></p>
     </div>
   </div>
 </footer>
