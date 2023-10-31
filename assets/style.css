@@ -48,4 +48,37 @@
  footer.page-footer {
    margin: 0;
  }
+
+ .stockimageheader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the image behind other content */
+}
+
+.stockimageheader img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Scale the image to cover the entire container */
+}
  
+    /* Center all text elements */
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+      text-align: center;
+    }
+
+    .github-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      background: #fff; /* Background color for the column */
+      padding: 20px; /* Adjust the padding as needed */
+    }
