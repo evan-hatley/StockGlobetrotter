@@ -6,19 +6,18 @@ const requestUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRA
 
 
 function getStock() {
-
-return fetch(requestUrl)
-  .then(function (response) {
-    console.log(response.status)
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-    return data;
-  })
-  .catch(function (error) {
-    console.error('Error:', error);
-  })
+  return fetch(requestUrl)
+    .then(function (response) {
+      console.log(response.status)
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      return data;
+    })
+    .catch(function (error) {
+      console.error('Error:', error);
+    })
 }
 
 const APIKey2 = "7fb1b8a05f0dade67bfe77ce";
@@ -41,8 +40,17 @@ async function stockRate() {
   var rate = await exchangeRate();
   var stock = await getStock();
   console.log(rate, stock);
-
-
 }
 
 stockRate();
+
+
+const contactUsBtn = () => {
+  $("#contactUsBtn").on('click', function (event) {
+    $('.github-links').css("display", "block");
+  });
+
+  
+}
+
+contactUsBtn();
