@@ -2,23 +2,19 @@
   display: flex;
   justify-content: space-between;
 }
-
 .section {
   width: 48%; /* Adjust the width as needed */
 }
-
 .collapsible {
   list-style: none;
   padding: 0;
   background-color: black;
   color: white;
 }
-
 .collapsible li {
   margin: 5px 0;
   border-radius: 45px;
 }
-
 /* Style the Stock and Currency buttons */
 .collapsible-header {
   background-color: #02101A; /* Change the background color */
@@ -31,13 +27,11 @@
   height: 60px; /* Adjust the height as needed */
   cursor: pointer;
 }
-
 /* Customize the Stock and Currency button icons */
 .collapsible-header i {
   font-size: 20
   px; /* Change the icon size */
 }
-
 /* Style the content inside the dropdown */
 select {
   background-color: white; /* Change the background color to white */
@@ -45,26 +39,21 @@ select {
   font-size: 16px; /* Change the font size */
   height: 60px; /* Adjust the height as needed */
 }
-
 /* Customize the font color of options in the dropdown */
 select option {
   color: #007ACC; /* Change the font color */
   height: 30px; /* Adjust the height as needed */
 }
-
 .icon-block {
   padding: 0 15px;
 }
-
 .icon-block .material-icons {
   font-size: inherit;
 }
-
 footer.page-footer {
   margin: 0;
   background-image: linear-gradient(50deg, #079ED8 0%, #0160A2 100%);
 }
-
 .stockimageheader {
   position: absolute;
   top: 0;
@@ -74,14 +63,12 @@ footer.page-footer {
   z-index: -1;
   /* Place the image behind other content */
 }
-
 .stockimageheader img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   /* Scale the image to cover the entire container */
 }
-
 /* Center all text elements */
 body,
 h1,
@@ -94,12 +81,13 @@ p {
   color: white;
   font-weight: bold;
 }
-
  /*Position: absolute -> sticky;
    display: none;
    right: 0;
    height: 100vh;*/
 .github-links {
+  font-weight: bold;
+  font-size: 20px;
   display: none;
   position: fixed;
   top: 0;
@@ -110,25 +98,16 @@ p {
   padding: 20px;
   color: aliceblue;
 }
-
 .github-links a:hover {
   color: white;
 }
-
 .close-button {
   float: right;
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
 }
-
 /* CSS to hide the GitHub links section initially */
-.github-links {
-  font-weight: bold;
-  font-size: 20px;
-  display: none;
-}
-
 /* Center the GitHub and Contact Us buttons */
 .contact-section {
   font-weight: bold;
@@ -140,7 +119,6 @@ p {
   margin-left: 450px;
   margin-right: auto;
 }
-
 .contact-section .btn-large {
   margin: 0 10px; /* Add some spacing between the buttons if desired */
 }
