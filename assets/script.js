@@ -22,6 +22,7 @@ function getStock() {
 
 const APIKey2 = "7fb1b8a05f0dade67bfe77ce";
 const APIurl = `https://v6.exchangerate-api.com/v6/${APIKey2}/latest/USD`;
+var currencies = {};
 
 function exchangeRate() {
   return fetch(APIurl)
@@ -29,13 +30,21 @@ function exchangeRate() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      return data;
+      const selectedRates = {
+        'CAD': data.conversion_rates.CAD,
+        'GBP': data.conversion_rates.GBP,
+        'JPY': data.conversion_rates.JPY
+      };
+      currencies = selectedRates;
+      console.log(selectedRates);
+    return selectedRates;
     })
     .catch(function (error) {
       console.error('Something went wrong:', error);
+      
     });
 }
+
 async function stockRate() {
   var rate = await exchangeRate();
   var stock = await getStock();
@@ -54,3 +63,28 @@ const contactUsBtn = () => {
 }
 
 contactUsBtn();
+
+ // JavaScript to handle the close button functionality
+ const closeButton = document.getElementById("close-button");
+ const githubLinks = document.querySelector(".github-links");
+
+ closeButton.addEventListener("click", () => {
+   githubLinks.style.display = "none";
+ });
+
+  // JavaScript to handle the collapsible functionality
+  const stockCollapsible = document.getElementById("stock-collapsible");
+  const currencyCollapsible = document.getElementById("currency-collapsible");
+
+  stockCollapsible.addEventListener("click", () => {
+    toggleCollapsible(stockCollapsible);
+  });
+
+  currencyCollapsible.addEventListener("click", () => {
+    toggleCollapsible(currencyCollapsible);
+  });
+
+  function toggleCollapsible(collapsible) {
+    const body = collapsible.querySelector(".collapsible-body");
+    body.style.display = body.style.display === "block" ? "none" : "block";
+  }

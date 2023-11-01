@@ -13,7 +13,6 @@
   <link href="assets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 </head>
-<<<<<<< HEAD
 <body>
    <!-- GitHub Links on the right side -->
    <div class="github-links">
@@ -33,6 +32,21 @@
 
   <div class="stockimageheader">
     <img src="assets/Images/background1.jpg" alt="stock Globe">
+<div id="index-banner" class="parallax-container" >
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header center teal-text text-lighten-2"></h1>
+      <div class="row center">
+        <h5 class="header col s12 light"></h5>
+      </div>
+      <div class="contact-section">
+        <a href="https://github.com/evan-hatley/StockGlobetrotter" class="btn-large waves-effect waves-light teal lighten-1">Github Repository</a>
+        <!-- Made Contact Us button to Display Contact Information -->
+        <a id="contactUsBtn" class="btn-large waves-effect waves-light teal lighten-1">Contact Us</a>
+      </div>
+      <br><br>
+    </div>
   </div>
 
   <nav class="white" role="navigation">
@@ -59,6 +73,48 @@
         </div>
         <div class="row center">
           <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+<!-- GitHub Links on the right side -->
+<div class="github-links">
+    <!-- Close button -->
+    <span class="close-button" id="close-button">X</span>
+  <h4>Connect with us!</h4>
+  <!-- Add Button that can be used by java script to close the section. -->
+  <ul>
+    <li><a href="https://github.com/evan-hatley">Evan Hatley</a></li>
+    <li><a href="https://github.com/KKBellew">Kayleena Bellew</a></li>
+    <li><a href="https://github.com/DylanOzzy">Dylan Osborn</a></li>
+    <li><a href="https://github.com/MayaH2000">Maya Hernandez</a></li>
+  </ul>
+</div>
+
+<div class="container">
+  <div class="section">
+    <ul class="collapsible" id="stock-collapsible">
+      <li>
+        <div class="collapsible-header"><i class="material-icons" id="Stock">flash_on</i>Stock</div>
+        <div class="collapsible-body">
+          <p>Your stock-related content goes here.</p>
+          <select id="stockSelect">
+            <option value="TSLA">Tesla (TSLA)</option>
+            <option value="GOOG">Alphabet (GOOG)</option>
+            <option value="APPL">Apple (APPL)</option>
+          </select>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="section">
+    <ul class="collapsible" id="currency-collapsible">
+      <li>
+        <div class="collapsible-header"><i class="material-icons" id="Currency">group</i>Currency</div>
+        <div class="collapsible-body">
+          <p>Your currency-related content goes here.</p>
+          <div id="stockInfo">
+    <p><strong>Symbol:</strong> <span id="stockSymbol"></span></p>
+    <p><strong>Last Traded Price:</strong> <span id="lastPrice"></span></p>
+    <p><strong>Trading Volume:</strong> <span id="volume"></span></p>
+    <p><strong>Exchange Rate:</strong> <span id="exchangeRate"></span></p>
+  </div>
         </div>
         <br><br>
 
