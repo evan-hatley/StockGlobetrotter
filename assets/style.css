@@ -3,8 +3,6 @@
   justify-content: space-between;
 }
 
-p {
-  line-height: 15rem;
 .section {
   width: 48%; /* Adjust the width as needed */
 }
@@ -21,19 +19,7 @@ p {
   border-radius: 45px;
 }
 
-
-.parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255, 255, 255, .9);
-}
-
-.parallax-container .section {
-  width: 100%;
- }
 /* Style the Stock and Currency buttons */
-
 .collapsible-header {
   background-color: #02101A; /* Change the background color */
   color: white; /* Change the font color */
@@ -45,6 +31,7 @@ p {
   height: 60px; /* Adjust the height as needed */
   cursor: pointer;
 }
+
 /* Customize the Stock and Currency button icons */
 .collapsible-header i {
   font-size: 20
@@ -79,7 +66,6 @@ footer.page-footer {
 }
 
 .stockimageheader {
-.stockimageheader {
   position: absolute;
   top: 0;
   left: 0;
@@ -87,15 +73,11 @@ footer.page-footer {
   height: 100%;
   z-index: -1;
   /* Place the image behind other content */
-  z-index: -1;
-  /* Place the image behind other content */
 }
 
 .stockimageheader img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  /* Scale the image to cover the entire container */
   object-fit: cover;
   /* Scale the image to cover the entire container */
 }
@@ -113,20 +95,19 @@ p {
   font-weight: bold;
 }
 
-
  /*Position: absolute -> sticky;
    display: none;
    right: 0;
    height: 100vh;*/
 .github-links {
+  display: none;
   position: fixed;
   top: 0;
   right: 0;
-  height: 100%;
-  width: 200px;
-  background-image: linear-gradient(50deg, #079ed8 0%, #0160a2 100%);
+  height: 100vh;
+  width: 160px;
+  background-image: linear-gradient(50deg, #079ED8 0%, #0160A2 100%);
   padding: 20px;
-  /* Adjust the padding as needed */
   color: aliceblue;
 }
 
