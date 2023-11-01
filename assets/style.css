@@ -5,20 +5,24 @@
 
 .section {
   width: 48%; /* Adjust the width as needed */
+ 
 }
 
 .collapsible {
   list-style: none;
   padding: 0;
+  background-color: black;
+  color: white;
 }
 
 .collapsible li {
-  margin: 10px 0;
+  margin: 5px 0;
+  border-radius: 45px;
 }
 
 /* Style the Stock and Currency buttons */
 .collapsible-header {
-  background-color: #007acc; /* Change the background color */
+  background-color: #02101a; /* Change the background color */
   color: white; /* Change the font color */
   padding: 10px; /* Adjust the padding as needed */
   border: 1px solid #007acc; /* Add a border to the header */
@@ -31,7 +35,8 @@
 
 /* Customize the Stock and Currency button icons */
 .collapsible-header i {
-  font-size: 24px; /* Change the icon size */
+  font-size: 20
+  px; /* Change the icon size */
 }
 
 /* Style the content inside the dropdown */
@@ -88,9 +93,10 @@ h4,
 h5,
 p {
   text-align: center;
+  color: white;
 }
 
-/* Position: absolute -> sticky;
+ /*Position: absolute -> sticky;
    display: none;
    right: 0;
    height: 100vh;*/
@@ -119,11 +125,15 @@ p {
 
 /* CSS to hide the GitHub links section initially */
 .github-links {
+  font-weight: bold;
+  font-size: 20px;
   display: none;
 }
 
 /* Center the GitHub and Contact Us buttons */
 .contact-section {
+  font-weight: bold;
+  font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
