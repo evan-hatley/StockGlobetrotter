@@ -1,46 +1,54 @@
-nav ul a,
-nav .brand-logo {
-  color: #444;
-}
-
-p {
-  line-height: 2rem;
-}
-
-.sidenav-trigger {
-  color: #26a69a;
-}
-
-.parallax-container {
+.container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.section {
+  width: 48%; /* Adjust the width as needed */
+}
+
+.collapsible {
+  list-style: none;
+  padding: 0;
+}
+
+.collapsible li {
+  margin: 10px 0;
+}
+
+/* Style the Stock and Currency buttons */
+.collapsible-header {
+  background-color: #007acc; /* Change the background color */
+  color: white; /* Change the font color */
+  padding: 10px; /* Adjust the padding as needed */
+  border: 1px solid #007acc; /* Add a border to the header */
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255, 255, 255, .9);
+  height: 60px; /* Adjust the height as needed */
+  cursor: pointer;
 }
 
-.parallax-container .section {
-  width: fit-content;
+/* Customize the Stock and Currency button icons */
+.collapsible-header i {
+  font-size: 24px; /* Change the icon size */
 }
 
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-
-  #index-banner .section {
-    top: 10%;
-  }
+/* Style the content inside the dropdown */
+select {
+  background-color: white; /* Change the background color to white */
+  color: #007acc; /* Change the font color */
+  font-size: 16px; /* Change the font size */
+  height: 60px; /* Adjust the height as needed */
 }
 
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
+/* Customize the font color of options in the dropdown */
+select option {
+  color: #007acc; /* Change the font color */
+  height: 30px; /* Adjust the height as needed */
 }
+
+
 
 .icon-block {
   padding: 0 15px;
@@ -112,6 +120,21 @@ p {
 /* CSS to hide the GitHub links section initially */
 .github-links {
   display: none;
+}
+
+/* Center the GitHub and Contact Us buttons */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  margin-left: 450px;
+  margin-right: auto;
+
+}
+
+.contact-section .btn-large {
+  margin: 0 10px; /* Add some spacing between the buttons if desired */
 }
 
 
