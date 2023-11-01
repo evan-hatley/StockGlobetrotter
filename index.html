@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,36 +7,19 @@
 
   <!-- CSS -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="../../dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="assets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 </head>
-<body>
-   <!-- GitHub Links on the right side -->
-   <div class="github-links">
-    <h4>Connect with us!</h4>
-    <ul>
-      <li><a href="https://github.com/evan-hatley">Evan Hatley</a></li>
-      <li><a href="https://github.com/KKBellew">Kayleena Bellew</a></li>
-      <li><a href="https://github.com/DylanOzzy">Dylan Osborn</a></li>
-      <li><a href="https://github.com/MayaH2000">Maya Hernandez</a></li>
-    </ul>
-  </div>
+  <!-- Added background image to the body instead of floating element -->
+<body style="background-image: url('assets/Images/background1.jpg');">
 
-   <!--jumbotron title-->
-   <div class="jumbotron container-fluid mt-2 text-center p-2" style="background-image: linear-gradient(50deg, #079ed8 0%, #0160a2 100%);;">
-    <h1> <strong>Stock Globe Trotter</strong></h1>
+<!-- Jumbotron title -->
+<div class="jumbotron container-fluid mt-2 text-center p-2" style="background-image: linear-gradient(50deg, #079ed8 0%, #0160a2 100%);">
+  <h1><strong>Stock Globe Trotter</strong></h1>
 </div>
 
     <div class="container" style="margin: 0; padding: 0;">
-
-  <div class="stockimageheader">
-    <img src="assets/Images/background1.jpg" alt="stock Globe">
-<div id="index-banner" class="parallax-container" >
-  <div class="section no-pad-bot">
-    <div class="container">
-
       <br><br>
       <h1 class="header center teal-text text-lighten-2"></h1>
       <div class="row center">
@@ -51,34 +33,8 @@
       <br><br>
     </div>
   </div>
+</div>
 
-
-
-
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Logo</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-lighten-2"></h1>
-        <div class="row center">
-          <h5 class="header col s12 light"></h5>
-        </div>
-        <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
 
 <!-- GitHub Links on the right side -->
 <div class="github-links">
@@ -98,7 +54,7 @@
   <div class="section">
     <ul class="collapsible" id="stock-collapsible">
       <li>
-        <div class="collapsible-header"><i class="material-icons" id="Stock">flash_on</i>Stock</div>
+        <div class="collapsible-header"><i class="material-icons">flash_on</i>Stock</div>
         <div class="collapsible-body">
           <p>Your stock-related content goes here.</p>
           <select id="stockSelect">
@@ -118,87 +74,55 @@
   <div class="section">
     <ul class="collapsible" id="currency-collapsible">
       <li>
-        <div class="collapsible-header"><i class="material-icons" id="Currency">group</i>Currency</div>
+        <div class="collapsible-header"><i class="material-icons">group</i>Currency</div>
         <div class="collapsible-body">
           <p>Your currency-related content goes here.</p>
           <div id="stockInfo">
  
   </div>
         </div>
-        <br><br>
-
-      </div>
-    </div>
+      </li>
+    </ul>
   </div>
+</div>
 
-  <div class="container">
-    <div class="section">
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Speeds up development</h5>
-            <p class="light"></p>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">User Experience Focused</h5>
-            <p class="light"></p>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class= "icon-block">
-            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center"></h5>
-            <p class="light"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="section">
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Stock Globe Trotter Repository</h4>
-          <p class="left-align light"></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light"></h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"></div>
-  </div>
-
-
-  <footer class="page-footer teal">
+<!-- Moved "About" to footer -->
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
     <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text"></h5>
-          <p class="grey-text text-lighten-4"></p>
-        </div>
+      <div class="row center">
+        <h5 class="header col s12 light"></h5>
       </div>
     </div>
-  </footer>
+  </div>
+  <div class="parallax"></div>
+</div>
 
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
- <script src="../../dist/js/materialize.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script> 
+<footer class="page-footer teal">
+  <div class="container">
+    <div class="row">
+      <h5 class="white-text"></h5>
+      <h4>About Stock Globe Trotter</h4>
+      <h5>User Story</h5>
+      <p>
+        AS AN Investor who travels
+      </p>
+      <p>
+        I WANT to keep track of my stock's exchange rate for where I am
+      </p>
+      <p>
+        SO I know my stock's value in relation to my location.
+      </p>
+      <h5>Technologies Used</h5>
+      <p>The two APIs we used in this project are the <a class="black-text" href="https://docs.data.nasdaq.com/">NASDAQ
+          Data API</a> and <a class="black-text" href="https://exchangeratesapi.io/">ExchangeRates API</a></p>
+      <p class="grey-text text-lighten-4"></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
 <script src="assets/script.js"></script>
-  </body>
-</html>
+</body>
