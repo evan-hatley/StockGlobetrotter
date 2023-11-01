@@ -30,6 +30,7 @@ function exchangeRate() {
       return response.json();
     })
     .then(function (data) {
+      // We started by selecting only 3 currencies to test our limitations with the APIs and produce our MVP. We later plan to expand to a search function with all listed currencies
       const selectedRates = {
         'CAD': data.conversion_rates.CAD,
         'GBP': data.conversion_rates.GBP,
@@ -37,7 +38,25 @@ function exchangeRate() {
       };
       currencies = selectedRates;
       console.log(selectedRates);
-    return selectedRates;
+
+      const currencyElement = document.getElementById('Currency');
+        currencyElement.innerHTML = 'Select Currency: ';
+// I created a for loop to dynamically create the buttons for each currency by putting them into an array then appending child for each
+        const entries = Object.entries(selectedRates);
+        for (let i = 0; i < entries.length; i++) {
+          const exchangeOption = entries[i][0];
+          const value = entries[i][1];
+        const currencyButton = document.createElement("button");
+        currencyButton.innerHTML = exchangeOption;
+        
+        currencyButton.addEventListener("click", function() {
+          const exchangeRateElement = document.getElementById('exchangeRate');
+          // Learned about the backticks/template literals from Josh Diehl and how they can differ from "". This line only works with the back ticks
+          exchangeRateElement.innerHTML = `${exchangeOption} Exchange Rate: ${value}`;
+        });
+        currencyElement.appendChild(currencyButton);
+      }
+      return selectedRates;
     })
     .catch(function (error) {
       console.error('Something went wrong:', error);
@@ -71,3 +90,20 @@ contactUsBtn();
  closeButton.addEventListener("click", () => {
    githubLinks.style.display = "none";
  });
+
+  // JavaScript to handle the collapsible functionality
+  const stockCollapsible = document.getElementById("stock-collapsible");
+  const currencyCollapsible = document.getElementById("currency-collapsible");
+
+  stockCollapsible.addEventListener("click", () => {
+    toggleCollapsible(stockCollapsible);
+  });
+
+  currencyCollapsible.addEventListener("click", () => {
+    toggleCollapsible(currencyCollapsible);
+  });
+
+  function toggleCollapsible(collapsible) {
+    const body = collapsible.querySelector(".collapsible-body");
+    body.style.display = body.style.display === "block" ? "none" : "block";
+  }
