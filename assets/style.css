@@ -12,10 +12,13 @@ p {
 .collapsible {
   list-style: none;
   padding: 0;
+  background-color: black;
+  color: white;
 }
 
 .collapsible li {
-  margin: 10px 0;
+  margin: 5px 0;
+  border-radius: 45px;
 }
 
 
@@ -31,10 +34,10 @@ p {
  }
 /* Style the Stock and Currency buttons */
 .collapsible-header {
-  background-color: #007acc; /* Change the background color */
+  background-color: #02101A; /* Change the background color */
   color: white; /* Change the font color */
   padding: 10px; /* Adjust the padding as needed */
-  border: 1px solid #007acc; /* Add a border to the header */
+  border: 1px solid #007ACC; /* Add a border to the header */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -43,24 +46,23 @@ p {
 }
 /* Customize the Stock and Currency button icons */
 .collapsible-header i {
-  font-size: 24px; /* Change the icon size */
+  font-size: 20
+  px; /* Change the icon size */
 }
 
 /* Style the content inside the dropdown */
 select {
   background-color: white; /* Change the background color to white */
-  color: #007acc; /* Change the font color */
+  color: #007ACC; /* Change the font color */
   font-size: 16px; /* Change the font size */
   height: 60px; /* Adjust the height as needed */
 }
 
 /* Customize the font color of options in the dropdown */
 select option {
-  color: #007acc; /* Change the font color */
+  color: #007ACC; /* Change the font color */
   height: 30px; /* Adjust the height as needed */
 }
-
-
 
 .icon-block {
   padding: 0 15px;
@@ -72,6 +74,7 @@ select option {
 
 footer.page-footer {
   margin: 0;
+  background-image: linear-gradient(50deg, #079ED8 0%, #0160A2 100%);
 }
 
 .stockimageheader {
@@ -109,6 +112,11 @@ p {
   font-weight: bold;
 }
 
+
+ /*Position: absolute -> sticky;
+   display: none;
+   right: 0;
+   height: 100vh;*/
 .github-links {
   position: fixed;
   top: 0;
@@ -134,24 +142,23 @@ p {
 
 /* CSS to hide the GitHub links section initially */
 .github-links {
+  font-weight: bold;
+  font-size: 20px;
   display: none;
 }
 
 /* Center the GitHub and Contact Us buttons */
 .contact-section {
+  font-weight: bold;
+  font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80%;
   margin-left: 450px;
   margin-right: auto;
-
 }
 
 .contact-section .btn-large {
   margin: 0 10px; /* Add some spacing between the buttons if desired */
-}
-
-
-
 }
