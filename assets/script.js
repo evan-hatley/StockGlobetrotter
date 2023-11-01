@@ -71,3 +71,20 @@ contactUsBtn();
  closeButton.addEventListener("click", () => {
    githubLinks.style.display = "none";
  });
+
+  // JavaScript to handle the collapsible functionality
+  const stockCollapsible = document.getElementById("stock-collapsible");
+  const currencyCollapsible = document.getElementById("currency-collapsible");
+
+  stockCollapsible.addEventListener("click", () => {
+    toggleCollapsible(stockCollapsible);
+  });
+
+  currencyCollapsible.addEventListener("click", () => {
+    toggleCollapsible(currencyCollapsible);
+  });
+
+  function toggleCollapsible(collapsible) {
+    const body = collapsible.querySelector(".collapsible-body");
+    body.style.display = body.style.display === "block" ? "none" : "block";
+  }
