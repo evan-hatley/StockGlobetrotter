@@ -4,24 +4,18 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stock Globe Trotter</title>
-
   <!-- CSS -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="assets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
 </head>
   <!-- Added background image to the body instead of floating element -->
 <body style="background-image: url('assets/Images/background1.jpg');">
-
 <!-- Jumbotron title -->
-<div class="jumbotron container-fluid mt-2 text-center p-2" style="background-image: linear-gradient(50deg, #079ed8 0%, #0160a2 100%);">
+<div class="jumbotron container-fluid mt-2 text-center p-2" style="background-image: linear-gradient(50deg, #079ED8 0%, #0160A2 100%);">
   <h1><strong>Stock Globe Trotter</strong></h1>
 </div>
-
-<div id="index-banner" class="parallax-container" >
-  <div class="section no-pad-bot">
-    <div class="container">
+    <div class="container" style="margin: 0; padding: 0;">
       <br><br>
       <h1 class="header center teal-text text-lighten-2"></h1>
       <div class="row center">
@@ -36,7 +30,6 @@
     </div>
   </div>
 </div>
-
 <!-- GitHub Links on the right side -->
 <div class="github-links">
     <!-- Close button -->
@@ -50,18 +43,21 @@
     <li><a href="https://github.com/MayaH2000">Maya Hernandez</a></li>
   </ul>
 </div>
-
 <div class="container">
   <div class="section">
     <ul class="collapsible" id="stock-collapsible">
       <li>
-        <div class="collapsible-header"><i class="material-icons" id="Stock">flash_on</i>Stock</div>
+        <div class="collapsible-header"><i class="material-icons">flash_on</i>Stock</div>
         <div class="collapsible-body">
           <p>Your stock-related content goes here.</p>
           <select id="stockSelect">
-            <li><option value="TSLA">Tesla (TSLA)</option></li>
+            <option value="TSLA">Tesla (TSLA)</option>
             <option value="GOOG">Alphabet (GOOG)</option>
             <option value="APPL">Apple (APPL)</option>
+            <p><strong>Symbol:</strong> <span id="stockSymbol"></span></p>
+            <p><strong>Last Traded Price:</strong> <span id="lastPrice"></span></p>
+            <p><strong>Trading Volume:</strong> <span id="volume"></span></p>
+            <p><strong>Exchange Rate:</strong> <span id="exchangeRate"></span></p>
           </select>
         </div>
       </li>
@@ -70,21 +66,16 @@
   <div class="section">
     <ul class="collapsible" id="currency-collapsible">
       <li>
-        <div class="collapsible-header"><i class="material-icons" id="Currency">group</i>Currency</div>
+        <div class="collapsible-header"><i class="material-icons">group</i>Currency</div>
         <div class="collapsible-body">
           <p>Your currency-related content goes here.</p>
           <div id="stockInfo">
-    <p><strong>Symbol:</strong> <span id="stockSymbol"></span></p>
-    <p><strong>Last Traded Price:</strong> <span id="lastPrice"></span></p>
-    <p><strong>Trading Volume:</strong> <span id="volume"></span></p>
-    <p><strong>Exchange Rate:</strong> <span id="exchangeRate"></span></p>
   </div>
         </div>
       </li>
     </ul>
   </div>
 </div>
-
 <!-- Moved "About" to footer -->
 <div class="parallax-container valign-wrapper">
   <div class="section no-pad-bot">
@@ -96,7 +87,6 @@
   </div>
   <div class="parallax"></div>
 </div>
-
 <footer class="page-footer teal">
   <div class="container">
     <div class="row">
@@ -119,7 +109,6 @@
     </div>
   </div>
 </footer>
-
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
