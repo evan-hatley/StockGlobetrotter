@@ -22,6 +22,7 @@ function getStock() {
 
 const APIKey2 = "7fb1b8a05f0dade67bfe77ce";
 const APIurl = `https://v6.exchangerate-api.com/v6/${APIKey2}/latest/USD`;
+var currencies = {};
 
 function exchangeRate() {
   return fetch(APIurl)
@@ -29,13 +30,21 @@ function exchangeRate() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      return data;
+      const selectedRates = {
+        'CAD': data.conversion_rates.CAD,
+        'GBP': data.conversion_rates.GBP,
+        'JPY': data.conversion_rates.JPY
+      };
+      currencies = selectedRates;
+      console.log(selectedRates);
+    return selectedRates;
     })
     .catch(function (error) {
       console.error('Something went wrong:', error);
+      
     });
 }
+
 async function stockRate() {
   var rate = await exchangeRate();
   var stock = await getStock();
