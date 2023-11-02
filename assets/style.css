@@ -50,10 +50,6 @@ select option {
 .icon-block .material-icons {
   font-size: inherit;
 }
-footer.page-footer {
-  margin: 0;
-  background-image: linear-gradient(50deg, #079ED8 0%, #0160A2 100%);
-}
 .stockimageheader {
   position: absolute;
   top: 0;
@@ -85,20 +81,22 @@ p {
    display: none;
    right: 0;
    height: 100vh;*/
-.github-links {
+.footer {
+  background-image: linear-gradient(50deg, #079ED8 0%, #0160A2 100%);
+  }   
+.footer .github-links {
   font-weight: bold;
   font-size: 20px;
   display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 160px;
+  position: center;
+  top: 50%;
+  width: 100%;
+  text-align: center;
   background-image: linear-gradient(50deg, #079ED8 0%, #0160A2 100%);
   padding: 20px;
   color: aliceblue;
 }
-.github-links a:hover {
+.footer.github-links a:hover {
   color: white;
 }
 .close-button {
@@ -109,7 +107,7 @@ p {
 }
 /* CSS to hide the GitHub links section initially */
 /* Center the GitHub and Contact Us buttons */
-.contact-section {
+.footer .contact-section {
   font-weight: bold;
   font-size: 20px;
   display: flex;
@@ -119,8 +117,11 @@ p {
   margin-left: 450px;
   margin-right: auto;
 }
-.contact-section .btn-large {
-  margin: 0 10px; /* Add some spacing between the buttons if desired */
+.footer .contact-section .btn-large {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  margin: 0 20px; /* Add some spacing between the buttons if desired */
 }
 
 #stockInfo {
@@ -135,7 +136,7 @@ p {
 }
 
 #stockInfo p {
-  margin: 0;
+  margin: 5%;
 }
 
 #stockSymbol {
