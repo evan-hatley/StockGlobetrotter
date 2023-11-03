@@ -39,37 +39,37 @@ function exchangeRate() {
       currencies = selectedRates;
       console.log(selectedRates);
 
-      const currencyElement = $("#Currency");
-      currencyElement.textContent = "Select Currency: ";
-      // I created a for loop to dynamically create the buttons for each currency by putting them into an array then appending child for each
-      const entries = Object.entries(selectedRates);
-      for (let i = 0; i < entries.length; i++) {
-        const exchangeOption = entries[i][0];
-        const value = entries[i][1];
-        const currencyButton = document.createElement("button");
-        currencyButton.innerHTML = exchangeOption;
-
-        currencyButton.addEventListener("click", function () {
-          const exchangeRateElement = document.getElementById("exchangeRate");
-          // Learned about the backticks/template literals from Josh Diehl and how they can differ from "". This line only works with the back ticks
-          exchangeRateElement.innerHTML = `${exchangeOption} Exchange Rate: ${value}`;
-          currencyElement.appendChild(currencyButton);
-        });
-      }
+// TODO: Update EventListeners to link to id exchangeRate
+      document.getElementById('CAD').addEventListener('click', function (event) {
+        event.preventDefault();
+        const exchangeRateElement = document.getElementById('exchangeRate');
+        exchangeRateElement.innerHTML = `CAD Exchange Rate: ${currencies.CAD}`;
+      });
+    
+      
+      document.getElementById('GBP').addEventListener('click', function (event) {
+        event.preventDefault(); 
+        const exchangeRateElement = document.getElementById('exchangeRate');
+        exchangeRateElement.innerHTML = `EUR Exchange Rate: ${currencies.GBP}`; 
+      });
+    
+    
+      document.getElementById('JPY').addEventListener('click', function (event) {
+        event.preventDefault(); 
+        const exchangeRateElement = document.getElementById('exchangeRate');
+        exchangeRateElement.innerHTML = `JPY Exchange Rate: ${currencies.JPY}`;
+      });
+    
       return selectedRates;
     })
-    .catch(function (error) {
-      console.error("Something went wrong:", error);
-    });
+    };
+
+async function stockRate() {
+  var rate = await exchangeRate();
+  var stock = await getStock();
+  console.log(rate, stock);
 }
-
-// async function stockRate() {
-//   var rate = await exchangeRate();
-//   var stock = await getStock();
-//   console.log(rate, stock);
-// }
-// stockRate();
-
+stockRate();
 
 // JavaScript to display Contact Us munu on contactUsBtn
 const contactUsBtn = () => {
