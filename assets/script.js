@@ -1,24 +1,72 @@
-const apiKey = 'AANVGOW7H3G8JN6L';
 const symbol = 'TSLA';
 const interval = '5min';
+const additionalStockInfo = '/v11/finance/';
+const apiKey = '6jt0wuACYB7T5ejVcPXfa6rOT1CgGZEi45R9RVVa';
+const displayStockInfo = `https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=AAPL%2CTSLA%2CGOOG`;
+const aaplAdditionalInfo = 'https://yfapi.net/v11/finance/quoteSummary/AAPL?lang=en&region=US&modules=defaultKeyStatistics%2CassetProfile';
+const tslaAdditionalInfo = 'https://yfapi.net/v11/finance/quoteSummary/TSLA?lang=en&region=US&modules=defaultKeyStatistics%2CassetProfile';
+const googAdditionalInfo = 'https://yfapi.net/v11/finance/quoteSummary/GOOG?lang=en&region=US&modules=defaultKeyStatistics%2CassetProfile';
 
-const requestUrl = ``;
+$.ajax({
+  url: displayStockInfo,
+  type: 'GET',
+  dataType: 'json',
+  headers: {
+    'x-api-key': apiKey
+  },
+  success: function (result) {
+    console.log(result); 
+  },
+  error: function (error) {
+    alert("Cannot get data");
+  }
+});
 
+$.ajax({
+  url: aaplAdditionalInfo,
+  type: 'GET',
+  dataType: 'json',
+  headers: {
+    'x-api-key': apiKey
+  },
+  success: function (result) {
+    console.log(result);
+  },
+  error: function (error) {
+    alert("Cannot get data");
+  }
+});
 
-// function getStock() {
-//   return fetch(requestUrl)
-//     .then(function (response) {
-//       console.log(response.status)
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       console.log(data);
-//       return data;
-//     })
-//     .catch(function (error) {
-//       console.error('Error:', error);
-//     })
-// }
+$.ajax({
+  url: tslaAdditionalInfo,
+  type: 'GET',
+  dataType: 'json',
+  headers: {
+    'x-api-key': apiKey
+  },
+  success: function (result) {
+    console.log(result);
+  },
+  error: function (error) {
+    alert("Cannot get data");
+  }
+});
+
+$.ajax({
+  url: googAdditionalInfo,
+  type: 'GET',
+  dataType: 'json',
+  headers: {
+    'x-api-key': apiKey
+  },
+  success: function (result) {
+    console.log(result);
+  },
+  error: function (error) {
+    alert("Cannot get data");
+  }
+});
+
 
 const APIKey2 = "7fb1b8a05f0dade67bfe77ce";
 const APIurl = `https://v6.exchangerate-api.com/v6/${APIKey2}/latest/USD`;
