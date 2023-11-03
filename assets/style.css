@@ -77,14 +77,10 @@ p {
   color: white;
   font-weight: bold;
 }
- /*Position: absolute -> sticky;
-   display: none;
-   right: 0;
-   height: 100vh;*/
-.footer {
+footer {
   background-image: linear-gradient(50deg, #079ED8 0%, #0160A2 100%);
   }   
-.footer .github-links {
+footer .github-links {
   font-weight: bold;
   font-size: 20px;
   display: none;
@@ -99,14 +95,16 @@ p {
 .footer.github-links a:hover {
   color: white;
 }
+.github-links a {
+  color: white; 
+}
 .close-button {
   float: right;
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
 }
-/* CSS to hide the GitHub links section initially */
-/* Center the GitHub and Contact Us buttons */
+
 .footer .contact-section {
   font-weight: bold;
   font-size: 20px;
@@ -141,22 +139,28 @@ p {
 
 #stockSymbol {
   grid-area: stockSymbol;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
+  text-decoration: underline;
+  border-style: solid;
+  font-size: large;
 }
 
 #lastPrice {
   grid-area: lastPrice;
-  border-bottom: 1px solid black;
-
+  text-decoration: underline;
+  border-style: solid;
+  font-size: large;
 }
 
 #volume {
   grid-area: volume;
-  border-right: 1px solid black;
-
+  text-decoration: underline;
+  border-style: solid;
+  font-size: large;
 }
 
 #exchangeRate {
+  text-decoration: underline;
   grid-area: exchangeRate;
+  border-style: solid;
+  font-size: large;
 }
