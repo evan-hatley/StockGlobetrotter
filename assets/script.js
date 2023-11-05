@@ -1,10 +1,11 @@
+// Key constants to get us started with the API call to yahoo finance
 const symbol = 'TSLA';
 const interval = '5min';
 const additionalStockInfo = '/v11/finance/';
 const apiKey = '6jt0wuACYB7T5ejVcPXfa6rOT1CgGZEi45R9RVVa';
 const evanApiKey = '97N6vnqvfC7EBjNZqONed7k5iL4p1TJC3Mvqcwoe'
 const displayStockInfo = `https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=AAPL%2CTSLA%2CGOOG`;
-
+// Secondary API Key in case we run out of calls
 // '6jt0wuACYB7T5ejVcPXfa6rOT1CgGZEi45R9RVVa'
 
 $.ajax({
@@ -14,7 +15,7 @@ $.ajax({
   headers: {
     'x-api-key': evanApiKey
   },
-  // Check iterators to make sure they match the result data.
+  // Created three functions to operate our MVP stocks with basic calls
   success: function (result) {
     console.log(result);
     $('#tsla').on('click', function (event) {
@@ -46,7 +47,7 @@ $.ajax({
     alert("Cannot get data");
   }
 });
-
+// Second API call to get our currency exchange rates. I used 3 API endpoints to differentiate the conversions to our base 3 currencies
 const APIKey2 = "7fb1b8a05f0dade67bfe77ce";
 const APIurl = `https://v6.exchangerate-api.com/v6/${APIKey2}/latest/USD/`;
 const APIurlUSDtoCAD = `https://v6.exchangerate-api.com/v6/${APIKey2}/pair/USD/CAD`;
@@ -77,33 +78,33 @@ function exchangeRate() {
           })
           .then (function (response) {
             console.log(response);
+            let convertedPrice = exchangeRate * tslaLastPrice;
             $('#exchangeRate').text(data.conversion_rates.CAD);
+          })   
+      })
 
-          })
+      $('#GBP').on('click' , function (event) {
+        fetch(APIurlUSDtoGBP)
+        .then(function (response) {
+          return response.json();
+        })
+        .then (function (response) {
+          console.log(response);
+          $('#exchangeRate').text(data.conversion_rates.GBP);
+        })   
+    })
 
-      }
-      
-      
-      )
-// TODO: Update EventListeners to link to id exchangeRate
-      // document.getElementById('CAD').addEventListener('click', function (event) {
-      //   event.preventDefault();
-      //   const exchangeRateElement = document.getElementById('exchangeRate');
-      //   exchangeRateElement.innerHTML = `CAD Exchange Rate: ${currencies.CAD}`;
-      // });
-    
-      // document.getElementById('GBP').addEventListener('click', function (event) {
-      //   event.preventDefault(); 
-      //   const exchangeRateElement = document.getElementById('exchangeRate');
-      //   exchangeRateElement.innerHTML = `EUR Exchange Rate: ${currencies.GBP}`; 
-      // });
-     
-      // document.getElementById('JPY').addEventListener('click', function (event) {
-      //   event.preventDefault(); 
-      //   const exchangeRateElement = document.getElementById('exchangeRate');
-      //   exchangeRateElement.innerHTML = `JPY Exchange Rate: ${currencies.JPY}`;
-      // });
-    
+    $('#JPY').on('click' , function (event) {
+      fetch(APIurlUSDtoJPY)
+      .then(function (response) {
+        return response.json();
+      })
+      .then (function (response) {
+        console.log(response);
+        $('#exchangeRate').text(data.conversion_rates.JPY);
+      })   
+  })
+
       return selectedRates;
     })
     };
@@ -115,27 +116,23 @@ async function stockRate() {
 }
 stockRate();
 
-// JavaScript to display Contact Us munu on contactUsBtn
-const contactUsBtn = () => {
-  $("#contactUsBtn").on('click', function (event) {
-    $('.github-links').css("display", "block");
+// JavaScript to display Contact Us menu on contactUsBtn
+function contactUsBtn() {
+  $('#contactUsBtn').on('click', function(event) {
+    $('.github-links').css('display', 'block');
   });
-
 }
 contactUsBtn();
 
- // JavaScript to handle the close Contact Us menu button functionality
-const closeContactUsBtn = () => {
-  const githubLinks = $(".github-links");
-  $("#close-button").on("click", () => {
-    githubLinks.css("display", "none");
+function closeContactUsBtn() {
+  var githubLinks = $('.github-links');
+  $('#close-button').on('click', function() {
+    githubLinks.css('display', 'none');
   });
-
 }
 closeContactUsBtn();
 
-
-// JavaScript to handle the dropdown menu functionality
+// Adds dropdown functionality  to our stock and currency select buttons
 $(document).ready(function() {
   const stockCollapsible = $("#stock-collapsible");
   const currencyCollapsible = $("#currency-collapsible");
