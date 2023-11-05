@@ -47,62 +47,13 @@ $.ajax({
   }
 });
 
-// $.ajax({
-//   url: aaplAdditionalInfo,
-//   type: 'GET',
-//   dataType: 'json',
-//   headers: {
-//     'x-api-key': apiKey
-//   },
-//   success: function (result) {
-//     console.log(result);
-//   },
-//   error: function (error) {
-//     alert("Cannot get data");
-//   }
-// });
-
-// $.ajax({
-//   url: tslaAdditionalInfo,
-//   type: 'GET',
-//   dataType: 'json',
-//   headers: {
-//     'x-api-key': apiKey
-//   },
-//   success: function (result) {
-//     console.log(result);
-//     var symbol = result.quoteResponse.result[1].symbol;
-//     var lastPrice = result.quoteResponse.result[1].ask;
-//     var volume = result.quoteResponse.result[1].averageDailyVolume10Day;
-//     $('#stockSymbol').text(symbol);
-//     $('#lastPrice').text('Last Ask Price: $' + lastPrice);
-//     $('#volume').text(volume + ' Shares');
-//     $('exchangeRate').text('Select Currency to Convery');
-//   },
-//   error: function (error) {
-//     alert("Cannot get data");
-//   }
-// });
-
-// $.ajax({
-//   url: googAdditionalInfo,
-//   type: 'GET',
-//   dataType: 'json',
-//   headers: {
-//     'x-api-key': apiKey
-//   },
-//   success: function (result) {
-//     console.log(result);
-//   },
-//   error: function (error) {
-//     alert("Cannot get data");
-//   }
-// });
-
-
 const APIKey2 = "7fb1b8a05f0dade67bfe77ce";
-const APIurl = `https://v6.exchangerate-api.com/v6/${APIKey2}/latest/USD`;
+const APIurl = `https://v6.exchangerate-api.com/v6/${APIKey2}/latest/USD/`;
+const APIurlUSDtoCAD = `https://v6.exchangerate-api.com/v6/${APIKey2}/pair/USD/CAD`;
+const APIurlUSDtoGBP = `https://v6.exchangerate-api.com/v6/${APIKey2}/pair/USD/GBP`;
+const APIurlUSDtoJPY = `https://v6.exchangerate-api.com/v6/${APIKey2}/pair/USD/JPY`;
 var currencies = {};
+var amount = $('#lastPrice');
 
 function exchangeRate() {
   return fetch(APIurl)
@@ -119,26 +70,39 @@ function exchangeRate() {
       currencies = selectedRates;
       console.log(selectedRates);
 
-// TODO: Update EventListeners to link to id exchangeRate
-      document.getElementById('CAD').addEventListener('click', function (event) {
-        event.preventDefault();
-        const exchangeRateElement = document.getElementById('exchangeRate');
-        exchangeRateElement.innerHTML = `CAD Exchange Rate: ${currencies.CAD}`;
-      });
-    
+      $('#CAD').on('click' , function (event) {
+          fetch(APIurlUSDtoCAD)
+          .then(function (response) {
+            return response.json();
+          })
+          .then (function (response) {
+            console.log(response);
+            $('#exchangeRate').text(data.conversion_rates.CAD);
+
+          })
+
+      }
       
-      document.getElementById('GBP').addEventListener('click', function (event) {
-        event.preventDefault(); 
-        const exchangeRateElement = document.getElementById('exchangeRate');
-        exchangeRateElement.innerHTML = `EUR Exchange Rate: ${currencies.GBP}`; 
-      });
+      
+      )
+// TODO: Update EventListeners to link to id exchangeRate
+      // document.getElementById('CAD').addEventListener('click', function (event) {
+      //   event.preventDefault();
+      //   const exchangeRateElement = document.getElementById('exchangeRate');
+      //   exchangeRateElement.innerHTML = `CAD Exchange Rate: ${currencies.CAD}`;
+      // });
     
-    
-      document.getElementById('JPY').addEventListener('click', function (event) {
-        event.preventDefault(); 
-        const exchangeRateElement = document.getElementById('exchangeRate');
-        exchangeRateElement.innerHTML = `JPY Exchange Rate: ${currencies.JPY}`;
-      });
+      // document.getElementById('GBP').addEventListener('click', function (event) {
+      //   event.preventDefault(); 
+      //   const exchangeRateElement = document.getElementById('exchangeRate');
+      //   exchangeRateElement.innerHTML = `EUR Exchange Rate: ${currencies.GBP}`; 
+      // });
+     
+      // document.getElementById('JPY').addEventListener('click', function (event) {
+      //   event.preventDefault(); 
+      //   const exchangeRateElement = document.getElementById('exchangeRate');
+      //   exchangeRateElement.innerHTML = `JPY Exchange Rate: ${currencies.JPY}`;
+      // });
     
       return selectedRates;
     })
