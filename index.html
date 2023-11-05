@@ -18,7 +18,7 @@
 </head>
   <!-- Added background image to the body instead of floating element -->
 <body style="background-image: url('assets/Images/background1.jpg');">
-<!-- Jumbotron title -->
+<!-- Jumbotron title to hold majorit of info-->
 <div class="jumbotron container-fluid mt-2 text-center p-2" style="background-image: linear-gradient(50deg, #079ED8 0%, #0160A2 100%);">
   <h1><strong>Stock Globe Trotter</strong></h1>
 
@@ -28,6 +28,7 @@
       <li>
         <div class="collapsible-header"><i class="material-icons">flash_on</i>Stock</div>
         <div class="collapsible-body">
+          <!-- Adds the selectable buttons for current stock options. Will expand to search function in the future -->
           <a id="tsla" href= "#TSLA">Tesla (TSLA)</a><br>
             <a id="goog" href="#GOOG">Alphabet (GOOG)</a><br>
             <a id="aapl" href="#APPL">Apple (APPL)</a><br>
@@ -40,6 +41,7 @@
       <li>
         <div class="collapsible-header"><i class="material-icons">group</i>Currency</div>
         <div class="collapsible-body">
+          <!-- Adds selected currency conversions. Again, will update to search function i nthe future -->
           <a href= "#CAD" id="CAD">Canadian Dollar ($) </a><br>
           <a href="#GBP" id="GBP">(GBP)Pound Sterling (£)</a><br>
           <a href="#JPY" id="JPY">Japanese Yen (￥)</a><br>
@@ -49,6 +51,7 @@
     </ul>
   </div>
 </div>
+<!-- Contianer to display all of the API calls for stock and currency info -->
 <div class="stockInfoContainer">
   <div id="stockInfo">
     <p id="stockSymbol"> Stock Ticker</p>
@@ -80,13 +83,12 @@
     </div>
   </div>
   </div>
-<!-- GitHub Links on the right side -->
 <div class="github-links">
     <!-- Close button -->
     <span class="close-button" id="close-button">X</span>
   <h4>Connect with us!</h4>
-  <!-- Add Button that can be used by java script to close the section. -->
   <ul>
+    <!-- Added links to our GitHub pages -->
     <li><a href="https://github.com/evan-hatley">Evan Hatley</a></li>
     <li><a href="https://github.com/KKBellew">Kayleena Bellew</a></li>
     <li><a href="https://github.com/DylanOzzy">Dylan Osborn</a></li>
