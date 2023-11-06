@@ -90,7 +90,7 @@ $.ajax({
         let tslaExchangeRate = tslaLastPrice * CAD;
         $('#exchangeRate').text('$' + tslaExchangeRate);
         if ($('#stockSymbol') != 'TSLA' != 'AAPL')
-        var googLastPrice = resul.quoteResponse.result[2].ask;
+        var googLastPrice = result.quoteResponse.result[2].ask;
         let googExchangeRate = googLastPrice * CAD;
         $('#exchangeRate').text('$' + googExchangeRate);
         if ($('#stockSymbol') != 'TSLA' != 'GOOG')
