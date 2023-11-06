@@ -5,8 +5,64 @@ const additionalStockInfo = '/v11/finance/';
 const apiKey = '6jt0wuACYB7T5ejVcPXfa6rOT1CgGZEi45R9RVVa';
 const evanApiKey = '97N6vnqvfC7EBjNZqONed7k5iL4p1TJC3Mvqcwoe'
 const displayStockInfo = `https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=AAPL%2CTSLA%2CGOOG`;
+
 // Secondary API Key in case we run out of calls
 // '6jt0wuACYB7T5ejVcPXfa6rOT1CgGZEi45R9RVVa'
+
+// This function is used to get the values relating to each available stock and displaying the proper info in the corresponding text areas. 
+$.ajax({
+  url: displayStockInfo,
+  type: 'GET',
+  dataType: 'json',
+  headers: {
+    'x-api-key': evanApiKey
+  },
+  success: function (result) {
+    // This part of the function is for displaying TSLA information.
+    $('#tsla').on('click', function (event) {
+      var tslaSymbol = result.quoteResponse.result[1].symbol;
+      var tslaLastPrice = result.quoteResponse.result[1].ask;
+      var tslaVolume = result.quoteResponse.result[1].averageDailyVolume10Day;
+      $('#stockSymbol').text(tslaSymbol);
+      $('#lastPrice').text('Last Ask Price: $' + tslaLastPrice);
+      $('#volume').text(tslaVolume + ' Shares Traded Today');
+    });
+    // This part of the function is for displaying GOOG information.
+    $('#goog').on('click', function (event) {
+      var googSymbol = result.quoteResponse.result[2].symbol;
+      var googLastPrice = result.quoteResponse.result[2].ask;
+      var googVolume = result.quoteResponse.result[2].averageDailyVolume10Day;
+      $('#stockSymbol').text(googSymbol);
+      $('#lastPrice').text('Last Ask Price: $' + googLastPrice);
+      $('#volume').text(googVolume + ' Shares Traded Today');
+    });
+    // This part of the function is for displaying AAPL information.
+    $('#aapl').on('click', function (event) {
+      var aaplSymbol = result.quoteResponse.result[0].symbol;
+      var aaplLastPrice = result.quoteResponse.result[0].ask;
+      var aaplVolume = result.quoteResponse.result[0].averageDailyVolume10Day;
+      $('#stockSymbol').text(aaplSymbol);
+      $('#price').text(aaplLastPrice);
+      $('#lastPrice').text('Last Ask Price: $ ' + aaplLastPrice);
+      $('#volume').text(aaplVolume + ' Shares Traded Today');
+    });
+  },
+  error: function (error) {
+    alert("Cannot get data");
+  }
+});
+
+
+const APIKey2 = "7fb1b8a05f0dade67bfe77ce";
+const APIurl = `https://v6.exchangerate-api.com/v6/${APIKey2}/latest/USD/`;
+const APIurlUSDtoCAD = `https://v6.exchangerate-api.com/v6/${APIKey2}/pair/USD/CAD&`;
+const APIurlUSDtoGBP = `https://v6.exchangerate-api.com/v6/${APIKey2}/pair/USD/GBP`;
+const APIurlUSDtoJPY = `https://v6.exchangerate-api.com/v6/${APIKey2}/pair/USD/JPY`;
+const tlsaPriceExchange= `https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=TSLA`;
+const googPriceExchange = `https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=GOOG`;
+const applPriceExchange = `https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=AAPL`;
+var currencies = {};
+
 
 $.ajax({
   url: displayStockInfo,
@@ -15,106 +71,73 @@ $.ajax({
   headers: {
     'x-api-key': evanApiKey
   },
-  // Created three functions to operate our MVP stocks with basic calls
+  // Fetching the exchange rates to multiply with each stock
   success: function (result) {
-    console.log(result);
-    $('#tsla').on('click', function (event) {
-      var tslaSymbol = result.quoteResponse.result[1].symbol;
-      var tslaLastPrice = result.quoteResponse.result[1].ask;
-      var tslaVolume = result.quoteResponse.result[1].averageDailyVolume10Day;
-      $('#stockSymbol').text(tslaSymbol);
-      $('#lastPrice').text('Last Ask Price: $' + tslaLastPrice);
-      $('#volume').text(tslaVolume + ' Shares');
-    });
-    $('#goog').on('click', function (event) {
-      var googSymbol = result.quoteResponse.result[2].symbol;
-      var googLastPrice = result.quoteResponse.result[2].ask;
-      var googVolume = result.quoteResponse.result[2].averageDailyVolume10Day;
-      $('#stockSymbol').text(googSymbol);
-      $('#lastPrice').text('Last Ask Price: $' + googLastPrice);
-      $('#volume').text(googVolume + ' Shares');
-    });
-    $('#aapl').on('click', function (event) {
-      var aaplSymbol = result.quoteResponse.result[0].symbol;
-      var aaplLastPrice = result.quoteResponse.result[0].ask;
-      var aaplVolume = result.quoteResponse.result[0].averageDailyVolume10Day;
-      $('#stockSymbol').text(aaplSymbol);
-      $('#lastPrice').text('Last Ask Price: $' + aaplLastPrice);
-      $('#volume').text(aaplVolume + ' Shares');
-    });
+      return fetch(APIurl)
+        .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+      // We started by selecting only 3 currencies to test our limitations with the APIs and produce our MVP. We later plan to expand to a search function with all listed currencies
+      const CAD = data.conversion_rates.CAD;
+      const GBP = data.conversion_rates.GBP;
+      const JPY = data.conversion_rates.JPY;
+      // When CAD currency is elected, this part of the function checks which stock was selected but checking the value of #stockSymbol and getting that stocks traded price and multiplying it with the CAD exchange rate.
+      $('#CAD').on('click', function (event) {
+        event.preventDefault();
+        if ($('#stockSymbol') != 'GOOG' != 'AAPL')
+        var tslaLastPrice = result.quoteResponse.result[1].ask;
+        let tslaExchangeRate = tslaLastPrice * CAD;
+        $('#exchangeRate').text('$' + tslaExchangeRate);
+        if ($('#stockSymbol') != 'TSLA' != 'AAPL')
+        var googLastPrice = resul.quoteResponse.result[2].ask;
+        let googExchangeRate = googLastPrice * CAD;
+        $('#exchangeRate').text('$' + googExchangeRate);
+        if ($('#stockSymbol') != 'TSLA' != 'GOOG')
+        var applLastPrice = result.quoteResponse.result[0].ask;
+        let aaplExchangeRate = applLastPrice * CAD;
+        $('#exchangeRate').text('$' + aaplExchangeRate);
+      })
+      // When GBP currency is elected, this part of the function checks which stock was selected but checking the value of #stockSymbol and getting that stocks traded price and multiplying it with the GBP exchange rate.
+      $('#GBP').on('click', function (event) {
+        event.preventDefault();
+        if ($('#stockSymbol') != 'GOOG' != 'AAPL')
+        var tslaLastPrice = result.quoteResponse.result[1].ask;
+        let tslaExchangeRate = tslaLastPrice * GBP;
+        $('#exchangeRate').text('£' + exchangeRate);
+        if ($('#stockSymbol') != 'TSLA' != 'AAPL')
+        var googLastPrice = result.quoteResponse.result[2].ask;
+        let googExchangeRate = googLastPrice * GBP;
+        $('#exchangeRate').text('£' + googExchangeRate);
+        if ($('#stockSymbol') != 'TSLA' != 'GOOG')
+        var applLastPrice = result.quoteResponse.result[0].ask;
+        let aaplExchangeRate = applLastPrice * GBP;
+        $('#exchangeRate').text('£' + aaplExchangeRate);
+      })
+      // When YEN currency is elected, this part of the function checks which stock was selected but checking the value of #stockSymbol and getting that stocks traded price and multiplying it with the YEN exchange rate.
+      $('#JPY').on('click', function (event) {
+        event.preventDefault();
+        if ($('#stockSymbol') != 'GOOG' != 'AAPL')
+        var tslaLastPrice = result.quoteResponse.result[1].ask;
+        let tslaExchangeRate = tslaLastPrice * JPY;
+        $('#exchangeRate').text('￥' + exchangeRate);
+        if ($('#stockSymbol') != 'TSLA' != 'AAPL')
+        var googLastPrice = result.quoteResponse.result[2].ask;
+        let googExchangeRate = googLastPrice * JPY;
+        $('#exchangeRate').text('￥' + googExchangeRate);
+        if ($('#stockSymbol') != 'TSLA' != 'GOOG')
+        var applLastPrice = result.quoteResponse.result[0].ask;
+        let aaplExchangeRate = applLastPrice * JPY;
+        $('#exchangeRate').text('￥' + aaplExchangeRate);
+      })
+    })
   },
+
+  // Error if the API cannot return Data.
   error: function (error) {
     alert("Cannot get data");
   }
 });
-// Second API call to get our currency exchange rates. I used 3 API endpoints to differentiate the conversions to our base 3 currencies
-const APIKey2 = "7fb1b8a05f0dade67bfe77ce";
-const APIurl = `https://v6.exchangerate-api.com/v6/${APIKey2}/latest/USD/`;
-const APIurlUSDtoCAD = `https://v6.exchangerate-api.com/v6/${APIKey2}/pair/USD/CAD`;
-const APIurlUSDtoGBP = `https://v6.exchangerate-api.com/v6/${APIKey2}/pair/USD/GBP`;
-const APIurlUSDtoJPY = `https://v6.exchangerate-api.com/v6/${APIKey2}/pair/USD/JPY`;
-var currencies = {};
-var amount = $('#lastPrice');
-
-function exchangeRate() {
-  return fetch(APIurl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      // We started by selecting only 3 currencies to test our limitations with the APIs and produce our MVP. We later plan to expand to a search function with all listed currencies
-      const selectedRates = {
-        CAD: data.conversion_rates.CAD,
-        GBP: data.conversion_rates.GBP,
-        JPY: data.conversion_rates.JPY,
-      };
-      currencies = selectedRates;
-      console.log(selectedRates);
-
-      $('#CAD').on('click' , function (event) {
-          fetch(APIurlUSDtoCAD)
-          .then(function (response) {
-            return response.json();
-          })
-          .then (function (response) {
-            console.log(response);
-            let convertedPrice = exchangeRate * tslaLastPrice;
-            $('#exchangeRate').text(data.conversion_rates.CAD);
-          })   
-      })
-
-      $('#GBP').on('click' , function (event) {
-        fetch(APIurlUSDtoGBP)
-        .then(function (response) {
-          return response.json();
-        })
-        .then (function (response) {
-          console.log(response);
-          $('#exchangeRate').text(data.conversion_rates.GBP);
-        })   
-    })
-
-    $('#JPY').on('click' , function (event) {
-      fetch(APIurlUSDtoJPY)
-      .then(function (response) {
-        return response.json();
-      })
-      .then (function (response) {
-        console.log(response);
-        $('#exchangeRate').text(data.conversion_rates.JPY);
-      })   
-  })
-
-      return selectedRates;
-    })
-    };
-
-async function stockRate() {
-  var rate = await exchangeRate();
-  var stock = await getStock();
-  console.log(rate, stock);
-}
-stockRate();
 
 // JavaScript to display Contact Us menu on contactUsBtn
 function contactUsBtn() {
@@ -124,6 +147,7 @@ function contactUsBtn() {
 }
 contactUsBtn();
 
+// JavaScript to close the Contact Us menu on close-button
 function closeContactUsBtn() {
   var githubLinks = $('.github-links');
   $('#close-button').on('click', function() {
