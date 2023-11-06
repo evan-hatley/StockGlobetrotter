@@ -88,14 +88,17 @@ $.ajax({
         if ($('#stockSymbol') != 'GOOG' != 'AAPL')
         var tslaLastPrice = result.quoteResponse.result[1].ask;
         let tslaExchangeRate = tslaLastPrice * CAD;
+        tslaExchangeRate = tslaExchangeRate.toFixed(2);
         $('#exchangeRate').text('$' + tslaExchangeRate);
         if ($('#stockSymbol') != 'TSLA' != 'AAPL')
         var googLastPrice = result.quoteResponse.result[2].ask;
         let googExchangeRate = googLastPrice * CAD;
+        googExchangeRate = googExchangeRate.toFixed(2);
         $('#exchangeRate').text('$' + googExchangeRate);
         if ($('#stockSymbol') != 'TSLA' != 'GOOG')
         var applLastPrice = result.quoteResponse.result[0].ask;
         let aaplExchangeRate = applLastPrice * CAD;
+        aaplExchangeRate = aaplExchangeRate.toFixed(2);
         $('#exchangeRate').text('$' + aaplExchangeRate);
       })
       // When GBP currency is elected, this part of the function checks which stock was selected but checking the value of #stockSymbol and getting that stocks traded price and multiplying it with the GBP exchange rate.
@@ -104,14 +107,17 @@ $.ajax({
         if ($('#stockSymbol') != 'GOOG' != 'AAPL')
         var tslaLastPrice = result.quoteResponse.result[1].ask;
         let tslaExchangeRate = tslaLastPrice * GBP;
+        tslaExchangeRate = tslaExchangeRate.toFixed(2);
         $('#exchangeRate').text('£' + exchangeRate);
         if ($('#stockSymbol') != 'TSLA' != 'AAPL')
         var googLastPrice = result.quoteResponse.result[2].ask;
         let googExchangeRate = googLastPrice * GBP;
+        googExchangeRate = googExchangeRate.toFixed(2);
         $('#exchangeRate').text('£' + googExchangeRate);
         if ($('#stockSymbol') != 'TSLA' != 'GOOG')
         var applLastPrice = result.quoteResponse.result[0].ask;
         let aaplExchangeRate = applLastPrice * GBP;
+        aaplExchangeRate = aaplExchangeRate.toFixed(2);
         $('#exchangeRate').text('£' + aaplExchangeRate);
       })
       // When YEN currency is elected, this part of the function checks which stock was selected but checking the value of #stockSymbol and getting that stocks traded price and multiplying it with the YEN exchange rate.
@@ -120,14 +126,17 @@ $.ajax({
         if ($('#stockSymbol') != 'GOOG' != 'AAPL')
         var tslaLastPrice = result.quoteResponse.result[1].ask;
         let tslaExchangeRate = tslaLastPrice * JPY;
+        tslaExchangeRate = tslaExchangeRate.toFixed(2);
         $('#exchangeRate').text('￥' + exchangeRate);
         if ($('#stockSymbol') != 'TSLA' != 'AAPL')
         var googLastPrice = result.quoteResponse.result[2].ask;
         let googExchangeRate = googLastPrice * JPY;
+        googExchangeRate = googExchangeRate.toFixed(2);
         $('#exchangeRate').text('￥' + googExchangeRate);
         if ($('#stockSymbol') != 'TSLA' != 'GOOG')
         var applLastPrice = result.quoteResponse.result[0].ask;
         let aaplExchangeRate = applLastPrice * JPY;
+        aaplExchangeRate = aaplExchangeRate.toFixed(2);
         $('#exchangeRate').text('￥' + aaplExchangeRate);
       })
     })
